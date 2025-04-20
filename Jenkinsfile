@@ -1,13 +1,14 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven3' // Make sure this is correctly defined in Jenkins global tool config
+    environment {
+        JAVA_HOME = 'C:\\Program Files\\Java\\jdk-17'
+        JMETER_HOME = 'C:\\Tools\\apache-jmeter-5.6.3'
+        PATH = "${JAVA_HOME}\\bin;${JMETER_HOME}\\bin;${env.PATH}"
     }
 
-    environment {
-        JMETER_HOME = 'C:\\Tools\\apache-jmeter-5.6.3'
-        PATH = "${JMETER_HOME}\\bin;${env.PATH}"
+    tools {
+        maven 'Maven3'
     }
 
     stages {
