@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven3' // Make sure "Maven3" is configured in Jenkins > Global Tool Configuration
+        maven 'Maven3' // Ensure this is defined in Jenkins Global Tools config
     }
 
     environment {
-        JMETER_HOME = 'C:\\apache-jmeter-5.5\\bin' // Adjust this to your JMeter installation path
-        PATH = "${env.JMETER_HOME};${env.PATH}"
+        JMETER_HOME = 'C:\\apache-jmeter-5.5' // ✅ Replace with the actual path to your JMeter installation
+        PATH = "${JMETER_HOME}\\bin;${env.PATH}" // Add JMeter to system path
     }
 
     stages {
